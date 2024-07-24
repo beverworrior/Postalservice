@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w^d&u4jmgxb4s_vkl2ch+j^ntz62@-k$tms12^%nbv*i26lc@o'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['8000-beverworrio-postalservi-m8pr07lbxiu.ws-eu115.gitpod.io']
+ALLOWED_HOSTS = ['8000-beverworrio-postalservi-j95fxqsikjm.ws-eu115.gitpod.io']
 
 
 # Application definition
@@ -128,5 +128,5 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-beverworrio-postalservi-m8pr07lbxiu.ws-eu115.gitpod.io'
+    'https://*.gitpod.io'
 ]

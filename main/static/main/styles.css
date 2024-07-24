@@ -37,6 +37,10 @@ footer {
     width: 100%;
 }
 
-h2 p {
+h2 {
+    text-align: center;
+}
+
+p {
     text-align: center;
 }
