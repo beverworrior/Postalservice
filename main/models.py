@@ -7,6 +7,10 @@ class PostalRecord(models.Model):
     recipient = models.CharField(max_length=100)
     address = models.TextField()
     postal_code = models.CharField(max_length=10)
+    city = models.CharField(max_length=50, default='Unknown')
+    country = models.CharField(max_length=50, default='Unknown')
+    weight = models.DecimalField(max_digits=5, decimal_places=2, default=0.0)
+    description = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

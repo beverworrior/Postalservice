@@ -3,7 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .models import PostalRecord, Shipment
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import ShipmentForm, CustomUserCreationForm
+from .forms import ShipmentForm, PostalRecordForm, CustomUserCreationForm
+
 # Create your views here.
 
 def home(request):
@@ -57,15 +58,19 @@ def register(request):
 @login_required
 def add_shipment(request):
     if request.method == 'POST':
-        form = ShipmentForm(request.POST)
-        if form.is_valid():
-            shipment = form.save(commit=False)
+        postal_form = PostalRecordForm(request.POST)
+        shipment_form = ShipmentForm(request.POST)
+        if postal_form.is_valid() and shipment_form.is_valid():
+            postal_record = postal_form.save()
+            shipment = shipment_form.save(commit=False)
             shipment.user = request.user
+            shipment.postal_record = postal_record
             shipment.save()
             return redirect('shipment_status')
     else:
-        form = ShipmentForm()
-    return render(request, 'main/add_shipment.html', {'form': form})
+        postal_form = PostalRecordForm()
+        shipment_form = ShipmentForm()
+    return render(request, 'main/add_shipment.html', {'postal_form': postal_form, 'shipment_form': shipment_form})
 
 @login_required
 def update_shipment(request, pk):

@@ -1,5 +1,4 @@
 {% extends 'main/base.html' %}
-{% load static %}
 
 {% block title %}Postal Services{% endblock %}
 
@@ -7,7 +6,17 @@
 <h2>Postal Records</h2>
 <ul>
     {% for record in records %}
-    <li>{{ record.sender }} to {{ record.recipient }} - {{ record.address }}</li>
+    <li>
+        <strong>Sender:</strong> {{ record.sender }}<br>
+        <strong>Recipient:</strong> {{ record.recipient }}<br>
+        <strong>Address:</strong> {{ record.address }}<br>
+        <strong>Postal Code:</strong> {{ record.postal_code }}<br>
+        <strong>City:</strong> {{ record.city }}<br>
+        <strong>Country:</strong> {{ record.country }}<br>
+        <strong>Weight:</strong> {{ record.weight }} kg<br>
+        <strong>Description:</strong> {{ record.description }}<br>
+        <strong>Created At:</strong> {{ record.created_at }}
+    </li>
     {% endfor %}
 </ul>
 {% endblock %}
