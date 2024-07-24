@@ -1,0 +1,12 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Postal Services{% endblock %}
+
+{% block content %}
+<h2>Postal Records</h2>
+<ul>
+    {% for record in records %}
+    <li>{{ record.sender }} to {{ record.recipient }} - {{ record.address }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
