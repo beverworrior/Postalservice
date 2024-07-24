@@ -1,0 +1,1 @@
+web: gunicorn postal_service.wsgi
