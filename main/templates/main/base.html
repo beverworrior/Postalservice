@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Postal Service{% endblock %}</title>
+    {% load static %}
     <link rel="stylesheet" href="{% static 'main/styles.css' %}">
 </head>
 <body>
@@ -14,6 +15,13 @@
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
                 <li><a href="{% url 'postal_services' %}">Postal Services</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'shipment_status' %}">Shipment Status</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                {% endif %}
             </ul>
         </nav>
     </header>
