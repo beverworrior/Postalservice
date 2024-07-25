@@ -76,7 +76,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-beverworrio-postalservi-hvx4tnq8uxc.ws-eu115.gitpod.io', 'https://<your-heroku-app-name>.herokuapp.com',
+    'https://8000-beverworrio-postalservi-hvx4tnq8uxc.ws-eu115.gitpod.io', 'https://postalservice-b8cd2c45bf2b.herokuapp.com/',
     'https://<your-custom-domain>'  # Replace with your actual server URL
 ]
 
