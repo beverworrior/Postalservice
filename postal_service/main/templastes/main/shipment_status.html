@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Shipment Status{% endblock %}
+
+{% block content %}
+<h2>Your Shipments</h2>
+<ul>
+    {% for shipment in shipments %}
+    <li>
+        Tracking Number: {{ shipment.tracking_number }}<br>
+        Status: {{ shipment.status }}<br>
+        Posted At: {{ shipment.created_at }}
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'add_shipment' %}">Send New Shipment</a>
+{% endblock %}

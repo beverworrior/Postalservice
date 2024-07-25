@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<h2>Welcome to the Postal Service</h2>
+<p class="center-text">We deliver your packages safely and on time.</p>
+
+<section>
+    <h3 class="center-text">Our Services</h3>
+    <p class="center-text">We offer a wide range of postal services to meet all your needs. Whether you need to send a letter, ship a package, or track a delivery, we have you covered.</p>
+</section>
+
+<section>
+    <h3 class="center-text">Why Choose Us?</h3>
+    <ul class="center-text">
+        <li>Reliable and fast delivery</li>
+        <li>Affordable rates</li>
+        <li>Excellent customer service</li>
+        <li>Track your shipments in real-time</li>
+    </ul>
+</section>
+
+<section>
+    <h3 class="center-text">Get Started</h3>
+    <p class="center-text">Sign up today and start sending your packages with confidence. Our easy-to-use online tools make it simple to create shipments, track deliveries, and manage your postal needs.</p>
+    <p class="center-text"><a href="{% url 'register' %}">Register now</a> or <a href="{% url 'login' %}">log in</a> to your account.</p>
+</section>
+{% endblock %}
