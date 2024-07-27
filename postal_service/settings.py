@@ -17,13 +17,14 @@ from pathlib import Path
 import dj_database_url
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+DEBUG = os.getenv('DEBUG', 'False').lower() in ['true', '1', 't']
 
-SECRET_KEY = os.getenv('SECRET_KEY', 'your-secret-key')
-DEBUG = False
-
-ALLOWED_HOSTS = ['https://postalservice-b8cd2c45bf2b.herokuapp.com/',
+ALLOWED_HOSTS = [
+    'postalservice-b8cd2c45bf2b.herokuapp.com',
     'localhost',
-    '127.0.0.1',  '8000-beverworrio-postalservi-hvx4tnq8uxc.ws-eu115.gitpod.io']
+    '127.0.0.1',
+    '8000-beverworrio-postalservi-hvx4tnq8uxc.ws-eu115.gitpod.io'
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -76,10 +77,11 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-beverworrio-postalservi-hvx4tnq8uxc.ws-eu115.gitpod.io', 'https://postalservice-b8cd2c45bf2b.herokuapp.com/',
-    'https://<your-custom-domain>'  # Replace with your actual server URL
+    'https://8000-beverworrio-postalservi-hvx4tnq8uxc.ws-eu115.gitpod.io',
+    'https://postalservice-b8cd2c45bf2b.herokuapp.com',
+    'https://your-custom-domain'  # Replace with your actual server URL
 ]
 
 # Cookie settings
-CSRF_COOKIE_SECURE = False
-SESSION_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = os.getenv('CSRF_COOKIE_SECURE', 'False').lower() in ['true', '1', 't']
+SESSION_COOKIE_SECURE = os.getenv('SESSION_COOKIE_SECURE', 'False').lower() in ['true', '1', 't']
